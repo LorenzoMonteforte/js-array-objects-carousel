@@ -90,6 +90,7 @@ let i = 0;
 const avanti = document.getElementById("avanti");
 avanti.addEventListener("click", function(){
     clearInterval(autoPlay);
+    clearInterval(autInd);
     i++;
     if(i == images.length){
         i = 0;
@@ -101,6 +102,7 @@ avanti.addEventListener("click", function(){
 const indietro = document.getElementById("indietro");
 indietro.addEventListener("click", function(){
     clearInterval(autoPlay);
+    clearInterval(autInd);
     i--;
     if(i == -1){
         i = (images.length-1);
@@ -108,12 +110,45 @@ indietro.addEventListener("click", function(){
     mostraImmagini(i);
     nascondiOpacitaIndietro(i);
 });
-/* AutoPlay */
-const autoPlay = setInterval(function(){
-    i++;
-    if(i == images.length){
-        i = 0;
-    }
-    mostraImmagini(i);
-    nascondiOpacitaAvanti(i);
-}, 3000);
+/* Funzione funAutoPlay */
+let autoPlay;
+function funAutoPlay(){
+    autoPlay = setInterval(function(){
+        i++;
+        if(i == images.length){
+            i = 0;
+        }
+        mostraImmagini(i);
+        nascondiOpacitaAvanti(i);
+    }, 3000);
+}
+funAutoPlay();
+/* Riproduzione automatica in avanti */
+const ripAutAva = document.getElementById("ripAutAva");
+ripAutAva.addEventListener("click", function(){
+    clearInterval(autoPlay);
+    funAutoPlay();
+});
+/* Riproduzione automatica all'indietro */
+let autInd;
+function funAutInd(){
+    autInd = setInterval(function(){
+        i--;
+        if(i == -1){
+            i = (images.length-1);
+        }
+        mostraImmagini(i);
+        nascondiOpacitaIndietro(i);
+    }, 3000)
+}
+const ripAutInd = document.getElementById("ripAutInd");
+ripAutInd.addEventListener("click", function(){
+    clearInterval(autoPlay);
+    funAutInd();
+})
+/* Stop */
+const stop = document.getElementById("stop");
+stop.addEventListener("click", function(){
+    clearInterval(autoPlay);
+    clearInterval(autInd);
+})

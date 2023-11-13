@@ -13,6 +13,7 @@ body > div{
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 /* Container */
 #container{
@@ -89,4 +90,28 @@ body > div{
 
 #thumbnailsContainer > img:last-of-type{
     border-bottom-right-radius: 0.5rem;
+}
+
+#controlContainer{
+    height: 10%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
+}
+
+#controlContainer > button{
+    height: 75%;
+    aspect-ratio: 1;
+    color: white;
+    background-color: black;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
