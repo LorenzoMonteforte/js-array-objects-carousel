@@ -72,6 +72,8 @@ body > div{
     height: 100%;
     width: 20%;
     background-color: black;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
 }
 
 #thumbnailsContainer > img{

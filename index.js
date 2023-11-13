@@ -89,6 +89,7 @@ let i = 0;
 /* Btn avanti click */
 const avanti = document.getElementById("avanti");
 avanti.addEventListener("click", function(){
+    clearInterval(autoPlay);
     i++;
     if(i == images.length){
         i = 0;
@@ -99,6 +100,7 @@ avanti.addEventListener("click", function(){
 /* Btn indietro click */
 const indietro = document.getElementById("indietro");
 indietro.addEventListener("click", function(){
+    clearInterval(autoPlay);
     i--;
     if(i == -1){
         i = (images.length-1);
@@ -106,3 +108,12 @@ indietro.addEventListener("click", function(){
     mostraImmagini(i);
     nascondiOpacitaIndietro(i);
 });
+/* AutoPlay */
+const autoPlay = setInterval(function(){
+    i++;
+    if(i == images.length){
+        i = 0;
+    }
+    mostraImmagini(i);
+    nascondiOpacitaAvanti(i);
+}, 3000);
