@@ -53,16 +53,18 @@ let i = 0;
 /* Btn avanti click */
 const avanti = document.getElementById("avanti");
 avanti.addEventListener("click", function(){
-    if(i < (images.length-1)){
-        i++;
-        mostraImmagini(i);
+    i++;
+    if(i == images.length){
+        i = 0;
     }
+    mostraImmagini(i);
 });
 /* Btn indietro click */
 const indietro = document.getElementById("indietro");
 indietro.addEventListener("click", function(){
-    if(i > 0){
-        i--;
-        mostraImmagini(i);
+    i--;
+    if(i == -1){
+        i = (images.length-1);
     }
+    mostraImmagini(i);
 });
