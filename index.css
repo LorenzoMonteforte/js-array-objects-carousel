@@ -14,12 +14,16 @@ body > div{
     justify-content: center;
     align-items: center;
 }
-/* fotoContainer */
-#fotoContainer{
+/* Container */
+#container{
     height: 70%;
     width: 80%;
-    background-color: blue;
-    border-radius: 0.5rem;
+    display: flex;
+}
+/* fotoContainer */
+#fotoContainer{
+    height: 100%;
+    width: 80%;
     position: relative;
 }
 
@@ -51,7 +55,8 @@ body > div{
     height: 100%;
     width: 100%;
     object-fit: cover;
-    border-radius: 0.5rem;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
 }
 
 #fotoContainer > div > div{
@@ -61,4 +66,25 @@ body > div{
     text-align: right;
     padding: 1rem;
     color: white;
+}
+
+#thumbnailsContainer{
+    height: 100%;
+    width: 20%;
+    background-color: black;
+}
+
+#thumbnailsContainer > img{
+    height: calc(100% / 5);
+    width: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+#thumbnailsContainer > img:first-of-type{
+    border-top-right-radius: 0.5rem;
+}
+
+#thumbnailsContainer > img:last-of-type{
+    border-bottom-right-radius: 0.5rem;
 }

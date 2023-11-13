@@ -48,6 +48,42 @@ function mostraImmagini(i){
     info.appendChild(div);
 }
 mostraImmagini(0);
+/* Funzione mostraThumbnails */
+const thumbnailsImg = [];
+function mostraThumbnails(){
+    const thumbnailsContainer = document.getElementById("thumbnailsContainer");
+    for(let index=0; index<images.length; index++){
+        const immagine = document.createElement("img");
+        immagine.src = images[index].image;
+        immagine.style.opacity = "0.5";
+        if(index == 0){
+            immagine.style.opacity = "1";
+        }
+        thumbnailsImg.push(immagine);
+        thumbnailsContainer.appendChild(immagine);
+    }
+}
+mostraThumbnails();
+/* Funzione nascondiOpacitaAvanti */
+function nascondiOpacitaAvanti(i){
+    if(i == 0){
+        thumbnailsImg[(images.length-1)].style.opacity = "0.5";
+        thumbnailsImg[i].style.opacity = "1";
+    }else{
+        thumbnailsImg[(i-1)].style.opacity = "0.5";
+        thumbnailsImg[i].style.opacity = "1";
+    }
+}
+/* Funzione nascondiOpacitaIndietro */
+function nascondiOpacitaIndietro(i){
+    if(i == (images.length-1)){
+        thumbnailsImg[0].style.opacity = "0.5";
+        thumbnailsImg[(images.length-1)].style.opacity = "1";
+    }else{
+        thumbnailsImg[(i+1)].style.opacity = "0.5";
+        thumbnailsImg[i].style.opacity = "1";
+    }
+}
 /* Inizializza variabile scorrimento immagini */
 let i = 0;
 /* Btn avanti click */
@@ -58,6 +94,7 @@ avanti.addEventListener("click", function(){
         i = 0;
     }
     mostraImmagini(i);
+    nascondiOpacitaAvanti(i);
 });
 /* Btn indietro click */
 const indietro = document.getElementById("indietro");
@@ -67,4 +104,5 @@ indietro.addEventListener("click", function(){
         i = (images.length-1);
     }
     mostraImmagini(i);
+    nascondiOpacitaIndietro(i);
 });
