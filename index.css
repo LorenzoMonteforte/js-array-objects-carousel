@@ -1,0 +1,64 @@
+/* Generals */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+/* Container con dimensioni dello schermo */
+body > div{
+    height: 100vh;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* fotoContainer */
+#fotoContainer{
+    height: 70%;
+    width: 80%;
+    background-color: blue;
+    border-radius: 0.5rem;
+    position: relative;
+}
+
+#fotoContainer > button{
+    height: 10%;
+    aspect-ratio: 1;
+    background-color: white;
+    border: none;
+    font-size: 1rem;
+    position: absolute;
+    top: 50%;
+    translate: 0 -50%;
+}
+
+#fotoContainer > button:first-of-type{
+    left: 0;
+}
+
+#fotoContainer > button:last-of-type{
+    right: 0;
+}
+
+#fotoContainer > div{
+    height: 100%;
+    width: 100%;
+}
+
+#fotoContainer > div > img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+#fotoContainer > div > div{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    text-align: right;
+    padding: 1rem;
+    color: white;
+}
