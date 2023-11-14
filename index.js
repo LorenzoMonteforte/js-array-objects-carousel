@@ -127,6 +127,7 @@ funAutoPlay();
 const ripAutAva = document.getElementById("ripAutAva");
 ripAutAva.addEventListener("click", function(){
     clearInterval(autoPlay);
+    clearInterval(autInd);
     funAutoPlay();
 });
 /* Riproduzione automatica all'indietro */
